@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package cat_fact;
+
+option go_package = "./cat_fact";
+
+service CatFactService {
+  rpc GetResponse (EmptyRequest) returns (Response);
+}
+
+message EmptyRequest {}
+
+message Response {
+  string message = 1;
+}

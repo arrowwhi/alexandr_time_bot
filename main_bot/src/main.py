@@ -1,5 +1,6 @@
 import asyncio
-import configparser
+import os
+# import configparser
 
 import logging
 from aiogram import Bot, Dispatcher
@@ -9,9 +10,7 @@ global last_message
 
 
 async def main():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    token = config.get('Telegram', 'token')
+    token = os.environ['TOKEN']
     # Включаем логирование, чтобы не пропустить важные сообщения
     logging.basicConfig(level=logging.INFO)
     # Объект бота
