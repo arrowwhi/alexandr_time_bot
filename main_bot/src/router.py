@@ -66,4 +66,4 @@ async def remember_last_message_time(message: types.Message):
     global last_message
 
     last_message = message.date
-    await message.reply("Я запомнил время вашего последнего сообщения.")
+    # await message.reply("Я запомнил время вашего последнего сообщения.")
