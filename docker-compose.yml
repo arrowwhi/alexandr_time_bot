@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  main:
+    container_name: main
+    build:
+      context: main_bot/
+    environment:
+      - TOKEN=
+      - USER=
+    networks:
+      - default_network
+
+  cat_fact:
+    container_name: cat_fact
+    build:
+      context: catFact/
+    networks:
+      - default_network
+
+
+networks:
+  default_network:
+    driver: bridge
