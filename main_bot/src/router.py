@@ -76,10 +76,12 @@ async def remember_last_message_time(message: types.Message):
 
     last_message = message.date
     # await message.reply("Я запомнил время вашего последнего сообщения.")
+    # await message.answer(message.text.lower())
     if message.text.lower().endswith('да'):
         await message.reply_sticker('CAACAgIAAxkBAAEDI_dlt1E9yFZuAkeOqNyW7670K3H71QACEgADueYaOtkIk_C3p4SwNAQ')
 
 
-@default_router.message(YesFilter())
+@default_router.message(ChatTypeFilter(chat_type=["group", "supergroup"]))
 async def get_yes_end(message: types.Message):
-    await message.reply_sticker('CAACAgIAAxkBAAEDI_dlt1E9yFZuAkeOqNyW7670K3H71QACEgADueYaOtkIk_C3p4SwNAQ')
+    if message.text.lower().endswith('да'):
+        await message.reply_sticker('CAACAgIAAxkBAAEDI_dlt1E9yFZuAkeOqNyW7670K3H71QACEgADueYaOtkIk_C3p4SwNAQ')
