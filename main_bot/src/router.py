@@ -26,17 +26,14 @@ async def start(message: types.Message):
 @default_router.message(Command('help'))
 async def start(message: types.Message):
     await message.answer('''Вот то, что я уже умею:
-    /klabukow - Узнать, сколько времени @ klabukow не писал в чат
+/klabukow - Узнать, сколько времени @ klabukow не писал в чат
+/cat_fact - Узнать случайный факт про котов
+/send_nudes - Получить кое-что приятное)    
+/help - Вывести все команды
     
-    /cat_fact - Узнать случайный факт про котов
-    
-    /send_nudes - Получить кое-что приятное)
-    
-    /help - Вывести все команды
-    
-    Бот написан и поддерживается @zakhaarovv.
-    Ссылка на репозиторий бота: 
-    https://github.com/arrowwhi/alexandr_time_bot
+Бот написан и поддерживается @zakhaarovv.
+Ссылка на репозиторий бота: 
+https://github.com/arrowwhi/alexandr_time_bot
     ''')
 
 
@@ -67,7 +64,7 @@ async def get_cat_fact(message: types.Message):
 @default_router.message(Command('send_nudes'))
 async def get_nudes_fact(message: types.Message):
     photo = FSInputFile("nude.jpg")
-    await message.answer_photo(photo)
+    await message.reply_photo(photo)
 
 
 @default_router.message(AdminFilter(time_user=user), ChatTypeFilter(chat_type=["group", "supergroup"]))
