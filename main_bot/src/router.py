@@ -8,7 +8,7 @@ import grpc
 from aiogram import Router, types
 from aiogram.filters import Command
 from aiogram.types import FSInputFile
-from filter import AdminFilter, ChatTypeFilter
+from filter import AdminFilter, ChatTypeFilter, YesFilter
 
 
 default_router = Router()
@@ -68,6 +68,12 @@ async def get_cat_fact(message: types.Message):
 async def get_nudes_fact(message: types.Message):
     photo = FSInputFile("nude.jpg")
     await message.answer_photo(photo)
+
+
+@default_router.message(YesFilter())
+async def get_yes_end(message: types.Message):
+    await message.reply_sticker('CAACAgIAAxkBAAEDI_dlt1E9yFZuAkeOqNyW7670K3H71QACEgADueYaOtkIk_C3p4SwNAQ')
+
 
 
 @default_router.message(AdminFilter(time_user=user), ChatTypeFilter(chat_type=["group", "supergroup"]))

@@ -22,3 +22,8 @@ class ChatTypeFilter(BaseFilter):  # [1]
             return message.chat.type == self.chat_type
         else:
             return message.chat.type in self.chat_type
+
+
+class YesFilter(BaseFilter):
+    def __call__(self, message: Message):
+        return message.text.lower().endswith('да')
