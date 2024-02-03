@@ -26,7 +26,7 @@ async def start(message: types.Message):
 @default_router.message(Command('help'))
 async def start(message: types.Message):
     await message.answer('''Вот то, что я уже умею:
-/klabukow - Узнать, сколько времени @ klabukow не писал в чат
+/klabukow - Узнать, сколько времени Александр Клабуков не писал в чат
 /cat_fact - Узнать случайный факт про котов
 /send_nudes - Получить кое-что приятное)    
 /help - Вывести все команды
@@ -47,7 +47,7 @@ async def get_last_message_time(message: types.Message):
         hours, seconds = divmod(seconds, 3600)
         minutes, seconds = divmod(seconds, 60)
         await message.reply(
-            f"@klabukow не писал сообщение в чат {int(days)} дней {int(hours)} часов "
+            f"Александр Клабуков не писал сообщение в чат {int(days)} дней {int(hours)} часов "
             f"{int(minutes)} минут {int(seconds)} секунд.")
     else:
         await message.reply("@klabukow еще не успел написать сообщение.")
